@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            background-color: #f4f4f4;
+            border: 2px solid #ddd;
+            padding: 20px;
+            color: #333;
+        }
+        form, label, input, button, table {
+            margin-bottom: 15px;
+        }
+        input[type="submit"], button {
+            background-color: #178283;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        input[type="text"] {
+            padding: 6px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        .pagination a {
+            color: white;
+        }
+        </style>
+    </head>
+<h1>Unit Management</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Save">
+</form> 
+
+<label>Name Contains</label>
+<input/>
+<button>Search</button>
+
+<table border="1">
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Action</th>
+</tr>
+
+{% for unit in uts %}
+<tr>
+    <td>{{unit.id}}</td>
+    <td>{{unit.name}}</td>
+    <td><button>View</button></td>
+</tr>
+{% endfor %}
+</table>
+<button>previous</button>
+<label>1</label>
+<button>Next</button>
+</html>
